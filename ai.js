@@ -5,5 +5,5 @@ document.addEventListener('DOMContentLoaded', function() {
   game.canvas.width  = window.innerWidth;
   game.canvas.height = window.innerHeight;
   
-  game.fillText("Test", 0, 0);
+  game.fillRect(0, 0, 100, 100);
 }, false);
