@@ -4,5 +4,5 @@ document.addEventListener('DOMContentLoaded', function() {
   
   game.fillRect(0, canvas.height - 200, canvas.width, 200);
 
-  game.fillText(canvas.height, 0, canvas.height);
+  game.fillText("Height:" canvas.height, 0, 200);
 }, false);
