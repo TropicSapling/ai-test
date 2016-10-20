@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   canvas.setAttribute("height", window.innerHeight);
   
   game.font = "24px Arial";
-  game.fillText("Generation: 1", 32, 32);
-  game.fillText("Child: 1", 32, 56);
+  game.fillText("Generation: 1", 16, 32);
+  game.fillText("Child: 1", 16, 56);
   
   game.fillRect(0, window.innerHeight - 300, window.innerWidth, 300); // Ground
 
