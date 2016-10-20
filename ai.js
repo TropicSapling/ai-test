@@ -1,4 +1,4 @@
-var c = document.getElementsByTagName("canvas");
-var ctx = c.getContext("2d");
+var canvas = document.getElementById("game");
+var game = c.getContext("2d");
 
-ctx.fillRect(0, canvas.height - 200, canvas.width, canvas.height);
+game.fillRect(0, canvas.height - 200, canvas.width, canvas.height);
