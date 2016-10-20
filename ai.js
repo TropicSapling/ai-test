@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   canvas.setAttribute("width", window.innerWidth);
   canvas.setAttribute("height", window.innerHeight);
   
+  game.fillText("Generation: 1\nChild: 1", 0, 0);
+  
   game.fillRect(0, window.innerHeight - 300, window.innerWidth, 300); // Ground
 
   game.fillStyle = "#333";
