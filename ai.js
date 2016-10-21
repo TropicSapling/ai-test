@@ -18,7 +18,7 @@ function think() {
     opsToUse.push(operations[Math.round(Math.random() * (operations.length - 1))]);
   }
   
-  var res = opsToUse.join(" ");
+  var res = eval(opsToUse.join(""));
   
   return res;
 }
