@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillStyle = "#333";
     game.fillRect(x, y, 75, 75); // AI
   }, 40);
+  
   for(i = 0; i < 10; i++) {
     setTimeout(function() {
       y++;
