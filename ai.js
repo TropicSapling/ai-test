@@ -1,3 +1,7 @@
+var x = 300;
+var y = window.innerHeight - 325;
+var jumping = false;
+
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
   var game = canvas.getContext("2d");
@@ -16,6 +20,30 @@ document.addEventListener('DOMContentLoaded', function() {
   
   startGame();
 }, false);
+
+function jump() {
+  if(!jumping) {
+    jumping = true;
+    
+    for(i = 0; i < 10; i++) {
+      game.clearRect(x, y, 75, 75);
+      y += 10;
+     game.fillRect(x, y, 75, 75);
+    }
+    
+    for(i = 0; i < 10; i++) {
+      game.clearRect(x, y, 75, 75);
+      y -= 10;
+      game.fillRect(x, y, 75, 75);
+    }
+    
+    jumping = false;
+  }
+}
+
+function sneak() {
+  game.clearRect(x, y, 30, 30);
+}
 
 function startGame() {
   // WIP
