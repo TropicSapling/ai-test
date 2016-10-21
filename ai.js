@@ -8,9 +8,7 @@ var speed = 1;
 var jumping = false;
 var falling = false;
 
-var operations = ["+", "-", "*", "/"];
-var values = [Math.PI, Math.E, objx, objy, objdx, objdy, speed];
-var functions = ["abs", "acos", "asin", "atan", "atan2", "ceil", "cos", "exp", "floor", "log", "max", "min", "pow"];
+var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
