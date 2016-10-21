@@ -57,6 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 4);
   
   document.getElementById("speed").addEventListener("change", function() {
-    speed = document.getElementById("speed").value();
+    speed = document.getElementById("speed").value;
   }, false);
 }, false);
