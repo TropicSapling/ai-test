@@ -10,6 +10,10 @@ var falling = false;
 
 var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
+function think() {
+  return 0;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
   var game = canvas.getContext("2d");
@@ -54,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
+
+    var action = think();
+    if(action == 0) {
+      jumping = true;
+    }
     
     speed = speed * 1.00002;
   }, 4);
