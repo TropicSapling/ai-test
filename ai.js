@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
   game.fillText("Generation: 1", 16, 32);
   game.fillText("Child: 1", 16, 56);
   
-  game.fillRect(0, window.innerHeight - 300, window.innerWidth, 300); // Ground
+  game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
 
   game.fillStyle = "#333";
-  game.fillRect(300, window.innerHeight - 400, 100, 100); // AI
+  game.fillRect(400, window.innerHeight - 325, 75, 75); // AI
   
   startGame();
 }, false);
