@@ -41,4 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function sneak() {
     game.clearRect(x, y, 30, 30);
   }
+  
+  // Game starts here, WIP
 }, false);
