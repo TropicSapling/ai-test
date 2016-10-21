@@ -23,8 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
     
-    game.fillStyle = "#333";
-    
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
         y--;
@@ -40,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
+    game.fillStyle = "#333";
     game.fillRect(x, y, 75, 75); // AI
     
     if(objx > 0) {
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
       objdy = Math.abs(objy - window.innerHeight) - 250;
     }
     
+    game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
     
     speed = speed * 1.0001;
