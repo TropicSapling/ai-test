@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
   game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
 
   game.fillStyle = "#333";
-  game.fillRect(300, window.innerHeight - 325, 75, 75); // AI
+  game.fillRect(x, y, 75, 75); // AI
   
   startGame();
 }, false);
