@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillStyle = "#333";
     game.fillRect(x, y, 75, 75); // AI
   }, 40);
+  
+  setInterval(jump, 1000);
 }, false);
 
 function jump() {
