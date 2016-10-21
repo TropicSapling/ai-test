@@ -5,6 +5,7 @@ var objy = window.innerHeight - 300;
 var objdx = 100;
 var objdy = 100;
 var objMoving = false;
+var speed = 1;
 var jumping = false;
 var falling = false;
 
