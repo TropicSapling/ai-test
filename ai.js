@@ -18,33 +18,27 @@ document.addEventListener('DOMContentLoaded', function() {
   game.fillStyle = "#333";
   game.fillRect(x, y, 75, 75); // AI
   
-  startGame();
-}, false);
-
-function jump() {
-  if(!jumping) {
-    jumping = true;
-    
-    for(i = 0; i < 10; i++) {
-      game.clearRect(x, y, 75, 75);
-      y += 10;
-      game.fillRect(x, y, 75, 75);
+  function jump() {
+    if(!jumping) {
+      jumping = true;
+      
+      for(i = 0; i < 10; i++) {
+        game.clearRect(x, y, 75, 75);
+        y += 10;
+        game.fillRect(x, y, 75, 75);
+      }
+      
+      for(i = 0; i < 10; i++) {
+        game.clearRect(x, y, 75, 75);
+        y -= 10;
+        game.fillRect(x, y, 75, 75);
+      }
+      
+      jumping = false;
     }
-    
-    for(i = 0; i < 10; i++) {
-      game.clearRect(x, y, 75, 75);
-      y -= 10;
-      game.fillRect(x, y, 75, 75);
-    }
-    
-    jumping = false;
   }
-}
 
-function sneak() {
-  game.clearRect(x, y, 30, 30);
-}
-
-function startGame() {
-  // WIP
-}
+  function sneak() {
+    game.clearRect(x, y, 30, 30);
+  }
+}, false);
