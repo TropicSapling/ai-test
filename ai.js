@@ -1,5 +1,9 @@
 var x = 300;
 var y = window.innerHeight - 325;
+var objx = window.innerWidth;
+var objy = window.innerHeight - 300;
+var objdx = 100;
+var objdy = 100;
 var jumping = false;
 var falling = false;
 
@@ -36,5 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     game.fillRect(x, y, 75, 75); // AI
+    
+    if(objMoving) {
+      objx -= speed * 4;
+      game.fillRect(objx, objy, objdx, objdy);
+    }
+    
+    speed = speed * 1.001;
   }, 40);
 }, false);
