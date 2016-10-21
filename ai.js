@@ -19,7 +19,6 @@ function think() {
   }
   
   var res = eval(opsToUse.join(""));
-  alert(opsToUse.join(""));
   
   return res;
 }
@@ -70,9 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
 
     var action = think();
-    if(action == 0) {
+    if(action == 1) {
       jumping = true;
-    } else if(action == 1) {
+    } else if(action == 0) {
       quickFalling = true;
     }
     
