@@ -9,30 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
   canvas.setAttribute("width", window.innerWidth);
   canvas.setAttribute("height", window.innerHeight);
   
-  game.font = "24px Arial";
-  game.fillText("Generation: 1", 16, 32);
-  game.fillText("Child: 1", 16, 56);
-  
-  game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
-
-  game.fillStyle = "#333";
-  game.fillRect(x, y, 75, 75); // AI
-  
+  setInterval(function() {
+    game.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    game.font = "24px Arial";
+    game.fillText("Generation: 1", 16, 32);
+    game.fillText("Child: 1", 16, 56);
+    
+    game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
+    
+    game.fillStyle = "#333";
+    game.fillRect(x, y, 75, 75); // AI
+  }, 40);
   for(i = 0; i < 10; i++) {
     setTimeout(function() {
-      game.clearRect(x, y, 75, 75);
-      y += 10;
-      game.fillRect(x, y, 75, 75);
-    }, 40);
+      y++;
+    }, 5);
   }
   
   for(i = 0; i < 10; i++) {
     setTimeout(function() {
-      game.clearRect(x, y, 75, 75);
-      y -= 10;
-      game.fillRect(x, y, 75, 75);
-    }, 40);
+      y--;
+    }, 5);
   }
-  
-  // Game starts here, WIP
 }, false);
