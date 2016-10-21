@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       objdy = objy - 250;
     }
     
-    game.fillRect(objx, objy, objdx, objdy);
+    game.fillRect(objx, objy, objdx, objdy); // Obstacle
     
     speed = speed * 1.0001;
   }, 40);
