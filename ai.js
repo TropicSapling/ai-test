@@ -10,7 +10,7 @@ var falling = false;
 
 var operations = ["+", "-", "*", "/"];
 var values = [Math.PI, Math.E, objx, objy, objdx, objdy, speed];
-var functions = ["abs"];
+var functions = ["abs", "acos", "asin", "atan", "atan2", "ceil", "cos", "exp", "floor", "log", "max", "min", "pow"];
 
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
