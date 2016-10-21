@@ -28,7 +28,7 @@ function jump() {
     for(i = 0; i < 10; i++) {
       game.clearRect(x, y, 75, 75);
       y += 10;
-     game.fillRect(x, y, 75, 75);
+      game.fillRect(x, y, 75, 75);
     }
     
     for(i = 0; i < 10; i++) {
