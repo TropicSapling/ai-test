@@ -1,6 +1,7 @@
 var x = 300;
 var y = window.innerHeight - 325;
-var jumping = false;
+var jumping = true;
+var falling = false;
 
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
@@ -19,13 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     game.fillStyle = "#333";
     
-    if(jumping) {
+    if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
-        y--;
-      } else if(y < window.innerHeight - 325) {
-        y++;
+        y -= 10;
+      } else {
+        falling = true;
+      }
+    } else if(falling) {
+      if(y < window.innerHeight - 325) {
+        y += 10;
       } else {
         jumping = false;
+        falling = false;
       }
     }
     
