@@ -1,9 +1,9 @@
 var x = 300;
 var y = window.innerHeight - 325;
 var objx = window.innerWidth;
-var objy = window.innerHeight - 350;
-var objdx = 100;
-var objdy = 100;
+var objy = window.innerHeight - 300; // Will range from 275 to 325 later on
+var objdx = 50; // Will range from 25 to 75 later on
+var objdy = 50; // Will range from 25 to 75 later on
 var objMoving = false;
 var speed = 1;
 var jumping = false;
