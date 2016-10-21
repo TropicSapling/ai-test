@@ -4,7 +4,7 @@ var objx = window.innerWidth;
 var objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
 var objdx = 25 + (Math.round(Math.random() * 50));
 var objdy = Math.abs(objy - window.innerHeight) - 250;
-var speed = 10;
+var speed = 1;
 var jumping = false;
 var falling = false;
 
@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
-        y -= 10;
+        y--;
       } else {
         falling = true;
       }
     } else if(falling) {
       if(y < window.innerHeight - 325) {
-        y += 10;
+        y++;
       } else {
         jumping = false;
         falling = false;
@@ -54,5 +54,5 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
     
     speed = speed * 1.0001;
-  }, 40);
+  }, 4);
 }, false);
