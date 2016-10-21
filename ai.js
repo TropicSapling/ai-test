@@ -53,6 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
     
-    speed = speed * 1.0001;
+    speed = speed * 1.00001;
   }, 4);
 }, false);
