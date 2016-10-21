@@ -19,15 +19,19 @@ document.addEventListener('DOMContentLoaded', function() {
   game.fillRect(x, y, 75, 75); // AI
   
   for(i = 0; i < 10; i++) {
-    game.clearRect(x, y, 75, 75);
-    y += 10;
-    game.fillRect(x, y, 75, 75);
+    setTimeout(function() {
+      game.clearRect(x, y, 75, 75);
+      y += 10;
+      game.fillRect(x, y, 75, 75);
+    }, 40);
   }
   
   for(i = 0; i < 10; i++) {
-    game.clearRect(x, y, 75, 75);
-    y -= 10;
-    game.fillRect(x, y, 75, 75);
+    setTimeout(function() {
+      game.clearRect(x, y, 75, 75);
+      y -= 10;
+      game.fillRect(x, y, 75, 75);
+    }, 40);
   }
   
   // Game starts here, WIP
