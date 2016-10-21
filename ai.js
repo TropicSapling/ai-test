@@ -8,6 +8,10 @@ var speed = 1;
 var jumping = false;
 var falling = false;
 
+var operations = ["+", "-", "*", "/"];
+var values = [Math.PI, Math.E, objx, objy, objdx, objdy, speed];
+var functions = ["abs"];
+
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
   var game = canvas.getContext("2d");
