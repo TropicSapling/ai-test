@@ -12,5 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
   game.fillRect(0, window.innerHeight - 300, window.innerWidth, 300); // Ground
 
   game.fillStyle = "#333";
-  game.fillRect(100, window.innerHeight - 400, 100, 100); // AI
+  game.fillRect(200, window.innerHeight - 400, 100, 100); // AI
+  
+  startGame();
 }, false);
+
+function startGame() {
+  // WIP
+}
