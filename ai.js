@@ -1,6 +1,6 @@
 var x = 300;
 var y = window.innerHeight - 325;
-var jumping = false
+var jumping = false;
 
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
