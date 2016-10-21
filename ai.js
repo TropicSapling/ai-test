@@ -18,28 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
     
     game.fillStyle = "#333";
+    
+    if(jumping) {
+      if(y > window.innerHeight - 425) {
+        y--;
+      } else if(y < window.innerHeight - 325) {
+        y++;
+      } else {
+        jumping = false;
+      }
+    }
+    
     game.fillRect(x, y, 75, 75); // AI
   }, 40);
-  
-  setInterval(jump, 1000);
 }, false);
-
-function jump() {
-  if(!jumping) {
-    jumping = true;
-    
-    for(i = 0; i < 100; i++) {
-      setTimeout(function() {
-        y--;
-      }, 5);
-    }
-    
-    for(i = 0; i < 100; i++) {
-      setTimeout(function() {
-        y++;
-      }, 5);
-    }
-    
-    jumping = false;
-  }
-}
