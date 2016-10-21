@@ -1,10 +1,9 @@
 var x = 300;
 var y = window.innerHeight - 325;
 var objx = window.innerWidth;
-var objy = window.innerHeight - 300; // Will range from 275 to 325 later on
-var objdx = 50; // Will range from 25 to 75 later on
-var objdy = 50; // Will range from 25 to 75 later on
-var objMoving = false;
+var objy = window.innerHeight - 300;
+var objdx = 50;
+var objdy = 50;
 var speed = 1;
 var jumping = false;
 var falling = false;
@@ -43,10 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     game.fillRect(x, y, 75, 75); // AI
     
-    if(objMoving) {
+    if(objx > 0) {
       objx -= speed * 4;
-      game.fillRect(objx, objy, objdx, objdy);
+    } else {
+      objx = window.innerWidth;
+      objdx = 25 + (Math.round(Math.random() * 50));
+      objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
+      objdy = objy - 250;
     }
+    
+    game.fillRect(objx, objy, objdx, objdy);
     
     speed = speed * 1.001;
   }, 40);
