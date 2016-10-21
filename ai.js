@@ -11,17 +11,13 @@ var quickfalling = false;
 
 var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
-function think() {
-  var res_len = Math.round(Math.random() * 10) + 1;
-  var opsToUse = [];
-  for(i = 0; i < res_len; i++) {
-    opsToUse.push(operations[Math.round(Math.random() * (operations.length - 1))]);
-  }
-  
-  var res = eval(opsToUse.join(""));
-  
-  return res;
+var res_len = Math.round(Math.random() * 10) + 1;
+var opsToUse = [];
+for(i = 0; i < res_len; i++) {
+  opsToUse.push(operations[Math.round(Math.random() * (operations.length - 1))]);
 }
+
+var genes = opsToUse.join("");
 
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
@@ -68,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
 
-    var action = think();
+    var action = eval(genes);
     if(action == 1) {
       jumping = true;
     } else if(action == 0) {
