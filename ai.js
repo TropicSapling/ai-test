@@ -4,7 +4,7 @@ var objx = window.innerWidth;
 var objy = window.innerHeight - 300;
 var objdx = 50;
 var objdy = 50;
-var speed = 1;
+var speed = 10;
 var jumping = false;
 var falling = false;
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     game.fillRect(x, y, 75, 75); // AI
     
     if(objx > 0) {
-      objx -= speed * 4;
+      objx -= speed;
     } else {
       objx = window.innerWidth;
       objdx = 25 + (Math.round(Math.random() * 50));
@@ -53,6 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     game.fillRect(objx, objy, objdx, objdy);
     
-    speed = speed * 1.001;
+    speed = speed * 1.0001;
   }, 40);
 }, false);
