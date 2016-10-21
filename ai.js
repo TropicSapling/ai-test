@@ -19,6 +19,8 @@ function think() {
   }
   
   var res = eval(opsToUse.join(""));
+  alert(opsToUse.join(""));
+  alert(res);
   
   return res;
 }
