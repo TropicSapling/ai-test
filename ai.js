@@ -28,13 +28,13 @@ function jump() {
   if(!jumping) {
     jumping = true;
     
-    for(i = 0; i < 10; i++) {
+    for(i = 0; i < 100; i++) {
       setTimeout(function() {
         y--;
       }, 5);
     }
     
-    for(i = 0; i < 10; i++) {
+    for(i = 0; i < 100; i++) {
       setTimeout(function() {
         y++;
       }, 5);
