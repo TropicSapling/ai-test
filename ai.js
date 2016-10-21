@@ -1,7 +1,7 @@
 var x = 300;
 var y = window.innerHeight - 325;
 var objx = window.innerWidth;
-var objy = window.innerHeight - 300;
+var objy = window.innerHeight - 350;
 var objdx = 100;
 var objdy = 100;
 var objMoving = false;
