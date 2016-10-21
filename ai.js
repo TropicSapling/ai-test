@@ -1,6 +1,6 @@
 var x = 300;
 var y = window.innerHeight - 325;
-var jumping = true;
+var jumping = false;
 var falling = false;
 
 document.addEventListener('DOMContentLoaded', function() {
