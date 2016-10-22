@@ -29,7 +29,6 @@ function findVal(paranthesis, op) {
     var randBracket = Math.round(Math.random());
     if(!(paranthesis < 1 && randBracket == operators.indexOf(")"))) {
       genes.push(operators[randBracket]);
-      alert(randBracket);
       return operators[randBracket];
     } else {
       genes.push(operators[randOp]);
@@ -62,6 +61,8 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  alert(genes);
 }
 
 function mergeGenes() {
