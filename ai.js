@@ -74,6 +74,20 @@ $(function() {
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
     
+    if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
+      // Touching obstacle
+      child++;
+      objx = window.innerWidth;
+      objdx = 25 + (Math.round(Math.random() * 50));
+      objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
+      objdy = Math.abs(objy - window.innerHeight) - 250;
+    }
+    
+    speed = speed * 1.00002;
+    $('#speed').val(speed);
+  }, 4);
+  
+  setInterval(function() {
     try {
       var action = eval(genes.join(""));
       
@@ -84,20 +98,8 @@ $(function() {
       }
     } catch(e) {
       generateGenes();
-    } finally {
-      if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
-        // Touching obstacle
-        child++;
-        objx = window.innerWidth;
-        objdx = 25 + (Math.round(Math.random() * 50));
-        objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
-        objdy = Math.abs(objy - window.innerHeight) - 250;
-      }
-      
-      speed = speed * 1.00002;
-      $('#speed').val(speed);
     }
-  }, 4);
+  }, 40);
   
   document.getElementById("speed").addEventListener("change", function() {
     speed = $("#speed").val();
