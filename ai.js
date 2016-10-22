@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     speed = speed * 1.00002;
+    document.getElementById("speed").value = speed;
   }, 4);
   
   document.getElementById("speed").addEventListener("change", function() {
