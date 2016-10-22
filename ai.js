@@ -47,10 +47,8 @@ function generateGenes() {
   for(i = 0; i < res_len; i++) {
     var lastVal = findVal(paranthesis, i);
     if(lastVal == "(") {
-      alert(lastVal);
       paranthesis++;
     } else if(lastVal == ")") {
-      alert(lastVal);
       paranthesis--;
     }
   }
@@ -59,6 +57,8 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  alert(genes);
 }
 
 function mergeGenes() {
