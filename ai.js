@@ -13,12 +13,36 @@ var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy,
 
 var res_len = Math.round(Math.random() * 10) + 1;
 var genes = [];
+var lastOp = -1;
+
+function findOp() {
+  var randOp = Math.round(Math.random() * (operations.length - 1));
+  if(randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
+    lastOp = randOp;
+    findOp();
+  } else {
+    genes.push(operations[randOp]);
+    lastOp = randOp;
+  }
+}
 
 function generateGenes() {
   genes = [];
   
+  var paranthesis = 0;
+  
   for(i = 0; i < res_len; i++) {
-    genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
+    findOp();
+    if(lastOp > 10 && lastOp < 30) {
+      paranthesis++;
+    } else if(lastOp == 30) {
+      paranthesis--;
+    }
+  }
+  
+  while(paranthesis) {
+    genes.push(")");
+    paranthesis--;
   }
   
   alert(genes.join(""));
