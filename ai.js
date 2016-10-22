@@ -8,9 +8,9 @@ var speed = 2;
 var jumping = false;
 var falling = false;
 
-var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "Math.PI", "Math.E", "objx", "objy", "objdx", "objdy", "speed", "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
+var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "Math.PI", "Math.E", "objx", "objy", "objdx", "objdy", "speed", "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
-var res_len = Math.round(Math.random() * 7) + 1;
+var res_len = Math.round(Math.random() * 9) + 1;
 var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
@@ -21,7 +21,7 @@ var best_speed_2nd = 1;
 
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
-  if((randOp == 34 && paranthesis < 1) || randOp == lastOp || (randOp < 8 && (lastOp < 8 || (lastOp > 14 && lastOp < 34) || lastOp == 36))) {
+  if((randOp == 36 && paranthesis < 1) || randOp == lastOp || (randOp < 10 && (lastOp < 10 || (lastOp > 16 && lastOp < 36) || lastOp == 38))) {
     findOp();
   } else {
     genes.push(operations[randOp]);
@@ -31,15 +31,15 @@ function findOp(paranthesis) {
 
 function generateGenes() {
   var paranthesis = 0;
-  res_len = Math.round(Math.random() * 7) + 1;
+  res_len = Math.round(Math.random() * 9) + 1;
   genes = [];
   lastOp = -1;
   
   for(i = 0; i < res_len; i++) {
     findOp(paranthesis);
-    if(lastOp > 14 && lastOp < 34) {
+    if(lastOp > 16 && lastOp < 36) {
       paranthesis++;
-    } else if(lastOp == 34) {
+    } else if(lastOp == 36) {
       paranthesis--;
     }
   }
@@ -55,7 +55,7 @@ function mergeGenes() {
   lastOp = -1;
   
   if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
-    res_len = Math.round(Math.random() * 7) + 1;
+    res_len = Math.round(Math.random() * 9) + 1;
   }
   
   genes = [];
@@ -63,9 +63,9 @@ function mergeGenes() {
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
       findOp(paranthesis);
-      if(lastOp > 14 && lastOp < 34) {
+      if(lastOp > 16 && lastOp < 36) {
         paranthesis++;
-      } else if(lastOp == 34) {
+      } else if(lastOp == 36) {
         paranthesis--;
       }
     } else if(Math.round(Math.random()) == 0) {
