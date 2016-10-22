@@ -65,8 +65,6 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
-  
-  alert(genes.join(" "));
 }
 
 function mergeGenes() {
