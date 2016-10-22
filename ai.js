@@ -12,7 +12,7 @@ var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "(", ")"]
 var vars = ["objx", "objy", "objdx", "objdy", "speed"];
 
 var res_len = Math.round(Math.random() * 11) + 1;
-while(res_len % 2) {
+while(res_len % 2 == 0) {
   res_len = Math.round(Math.random() * 11) + 1;
 }
 var genes = [];
@@ -40,7 +40,7 @@ function findVal(paranthesis, op) {
 
 function generateGenes() {
   var paranthesis = 0;
-  while(res_len % 2) {
+  while(res_len % 2 == 0) {
     res_len = Math.round(Math.random() * 11) + 1;
   }
   genes = [];
@@ -66,7 +66,7 @@ function mergeGenes() {
   var paranthesis = 0;
   
   if(Math.round(Math.random() * 5) == 1) {
-    while(res_len % 2) {
+    while(res_len % 2 == 0) {
       res_len = Math.round(Math.random() * 11) + 1;
     }
   }
