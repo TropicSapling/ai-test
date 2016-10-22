@@ -65,19 +65,19 @@ function mergeGenes() {
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    if(Math.round(Math.random() * 5) == 1 || (old_genes[i] == operations[lastVal] && old_genes_2nd[i] == operations[lastVal])) {
+    if(Math.round(Math.random() * 5) == 1) {
       var lastVal = findVal(paranthesis, i);
       if(lastVal == "(") {
         paranthesis++;
       } else if(lastVal == ")") {
         paranthesis--;
       }
-    } else if(Math.round(Math.random()) == 0 && old_genes[i] != operations[lastVal]) {
+    } else if(Math.round(Math.random()) == 0 && ((operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0))) {
       genes.push(old_genes[i]);
-    } else if(old_genes_2nd != operations[lastVal]) {
+    } else if((operators.indexOf(old_genes_2nd[i]) != -1 && i % 2) || (vars.indexOf(old_genes_2nd[i]) != -1 && i % 2 == 0)) {
       genes.push(old_genes_2nd[i]);
     } else {
-      findOp(paranthesis);
+      findVal(paranthesis);
       if(lastVal == "(") {
         paranthesis++;
       } else if(lastVal == ")") {
