@@ -9,7 +9,7 @@ var jumping = false;
 var falling = false;
 
 var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||"];
-var vars = ["objx", "objy", "objdx", "objdy", "speed"];
+var vars = ["objx", "objy", "objdx", "objdy", "speed", "rand"];
 var brackets = ["(", ")"];
 
 var res_len = Math.round(Math.random() * 15) + 1;
@@ -37,6 +37,11 @@ function findVal(paranthesis, op) {
     }
   } else {
     var randVar = Math.round(Math.random() * (vars.length - 1));
+    
+    if(vars[randVar] == "rand") {
+      randVar = Math.random() * 100;
+    }
+    
     if(randBracket == brackets.indexOf("(") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
