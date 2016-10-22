@@ -20,7 +20,7 @@ var best_speed = 5;
 var best_speed_2nd = 5;
 
 function findVal(paranthesis, op) {
-  if(op) {
+  if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
     if(paranthesis < 1 && randOp == operators.indexOf(")")) {
       findVal(paranthesis);
