@@ -134,7 +134,6 @@ $(function() {
         gen++;
         child = 0;
         speed = last_speed;
-        mergeGenes();
       } else {
         if(speed > best_speed) {
           old_genes = genes;
@@ -143,6 +142,11 @@ $(function() {
         
         child++;
         speed = last_speed;
+      }
+      
+      if(gen > 0) {
+        mergeGenes();
+      } else {
         generateGenes();
       }
       
