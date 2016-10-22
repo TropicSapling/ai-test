@@ -57,7 +57,7 @@ function findVal(parenthesis, op) {
 function generateGenes() {
   var parenthesis = 0;
   do {
-    res_len = Math.round(Math.random()) + 1;
+    res_len = Math.round(Math.random() * 11) + 1;
   } while(res_len % 2 == 0);
   genes = [];
   
@@ -87,7 +87,7 @@ function mergeGenes() {
   
   if(Math.round(Math.random() * 5) == 1) {
     do {
-      res_len = Math.round(Math.random()) + 1;
+      res_len = Math.round(Math.random() * 11) + 1;
     } while(res_len % 2 == 0);
   } else {
     do {
