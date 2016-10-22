@@ -172,7 +172,7 @@ $(function() {
       var func = new Function("return " + genes.join(""));
       var action = func();
       
-      if(action) {
+      if(action == true) {
         jumping = true;
       }
     } catch(e) {
