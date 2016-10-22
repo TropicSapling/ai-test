@@ -101,12 +101,20 @@ function mergeGenes() {
       }
     } else if(Math.round(Math.random()) == 0 && ((operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0) || (old_genes[i] == "(" && i % 2) || (old_genes[i] == ")" && i % 2 == 0))) {
       genes.push(old_genes[i]);
-      if(brackets.indexOf(old_genes[i])) {
+      if(old_genes[i] == "(") {
+        paranthesis++;
+        i--;
+      } else if(old_genes[i] == ")") {
+        paranthesis++;
         i--;
       }
     } else if((operators.indexOf(old_genes_2nd[i]) != -1 && i % 2) || (vars.indexOf(old_genes_2nd[i]) != -1 && i % 2 == 0) || (old_genes_2nd[i] == "(" && i % 2) || (old_genes_2nd[i] == ")" && i % 2 == 0)) {
       genes.push(old_genes_2nd[i]);
-      if(brackets.indexOf(old_genes_2nd[i])) {
+      if(old_genes[i] == "(") {
+        paranthesis++;
+        i--;
+      } else if(old_genes[i] == ")") {
+        paranthesis++;
         i--;
       }
     } else {
