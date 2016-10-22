@@ -118,7 +118,7 @@ function mergeGenes() {
         i--;
       }
     } else {
-      findVal(parenthesis);
+      var lastVal = findVal(parenthesis, i);
       if(lastVal == "(") {
         parenthesis++;
         i--;
