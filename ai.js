@@ -10,7 +10,7 @@ var falling = false;
 
 var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "Math.PI", "Math.E", "objx", "objy", "objdx", "objdy", "speed", "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
-var res_len = Math.round(Math.random() * 5) + 1;
+var res_len = Math.round(Math.random() * 7) + 1;
 var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
@@ -31,7 +31,7 @@ function findOp(paranthesis) {
 
 function generateGenes() {
   var paranthesis = 0;
-  res_len = Math.round(Math.random() * 4) + 1;
+  res_len = Math.round(Math.random() * 7) + 1;
   genes = [];
   lastOp = -1;
   
@@ -55,7 +55,7 @@ function mergeGenes() {
   lastOp = -1;
   
   if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
-    res_len = Math.round(Math.random() * 4) + 1;
+    res_len = Math.round(Math.random() * 7) + 1;
   }
   
   genes = [];
