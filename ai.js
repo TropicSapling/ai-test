@@ -8,7 +8,7 @@ var speed = 2;
 var jumping = false;
 var falling = false;
 
-var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "Math.PI", "Math.E", "objx", "objy", "objdx", "objdy", "speed", "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
+var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "objx", "objy", "objdx", "objdy", "speed", "(", ")"];
 
 var res_len = Math.round(Math.random() * 9) + 1;
 var genes = [];
@@ -21,7 +21,7 @@ var best_speed_2nd = 1;
 
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
-  if((randOp == 36 && paranthesis < 1) || randOp == lastOp || (randOp < 10 && (lastOp < 10 || (lastOp > 16 && lastOp < 36) || lastOp == 38))) {
+  if((randOp == operations.indexOf(")") && paranthesis < 1) || randOp == lastOp || (randOp < 10 && (lastOp < 10 || (lastOp == operations.indexOf("("))))) {
     findOp();
   } else {
     genes.push(operations[randOp]);
