@@ -39,7 +39,7 @@ function findVal(paranthesis, op) {
     var randVar = Math.round(Math.random() * (vars.length - 1));
     
     if(vars[randVar] == "rand") {
-      randVar = Math.random() * 100;
+      randVar = Math.round(Math.random() * 100);
     }
     
     if(randBracket == brackets.indexOf("(") && Math.round(Math.random())) {
