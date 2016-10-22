@@ -38,16 +38,18 @@ function findVal(paranthesis, op) {
   } else {
     var randVar = Math.round(Math.random() * (vars.length - 1));
     
-    if(Math.round(Math.random())) {
-      randVar = Math.round(Math.random() * 100);
-    }
-    
     if(randBracket == brackets.indexOf("(") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
-      genes.push(vars[randVar]);
-      return vars[randVar];
+      if(Math.round(Math.random())) {
+        randVar = Math.round(Math.random() * 100)
+        genes.push(randVar);
+        return randVar;
+      } else {
+        genes.push(vars[randVar]);
+        return vars[randVar];
+      }
     }
   }
 }
