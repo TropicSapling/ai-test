@@ -47,7 +47,27 @@ function generateGenes() {
 }
 
 function mergeGenes() {
+  var paranthesis = 0;
   
+  if(Math.round(Math.random() * gen) == 1) {
+    res_len = Math.round(Math.random() * 4) + 1;
+  }
+  
+  var old_genes = genes;
+  genes = [];
+  
+  for(i = 0; i < res_len; i++) {
+    if(Math.round(Math.random() * gen) == 1) {
+      findOp();
+      if(lastOp > 10 && lastOp < 30) {
+        paranthesis++;
+      } else if(lastOp == 30) {
+        paranthesis--;
+      }
+    } else {
+      genes.push(old_genes[i]);
+    }
+  }
 }
 
 generateGenes();
