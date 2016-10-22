@@ -20,7 +20,7 @@ for(i = 0; i < res_len; i++) {
 var gen = 0;
 var child = 0;
 
-document.addEventListener('DOMContentLoaded', function() {
+$(function() {
   var canvas = document.getElementById("game");
   var game = canvas.getContext("2d");
   
@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     speed = speed * 1.00002;
-    document.getElementById("speed").value = speed;
+    $('#speed').slider('value', speed);
   }, 4);
   
   document.getElementById("speed").addEventListener("change", function() {
-    speed = document.getElementById("speed").value;
+    speed = $("#speed").value;
   }, false);
-}, false);
+});
