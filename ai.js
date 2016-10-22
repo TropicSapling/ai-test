@@ -21,7 +21,6 @@ var best_speed = 1;
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
   if((randOp == 30 && paranthesis < 1) || randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
-    lastOp = randOp;
     findOp();
   } else {
     genes.push(operations[randOp]);
