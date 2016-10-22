@@ -23,12 +23,12 @@ var last_speed = 5;
 var best_speed = 5;
 var best_speed_2nd = 5;
 
-function findVal(paranthesis, op) {
+function findVal(parenthesis, op) {
   var randBracket = Math.round(Math.random());
   
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
-    if(paranthesis > 0 && randBracket == brackets.indexOf(")") && Math.round(Math.random())) {
+    if(parenthesis > 0 && randBracket == brackets.indexOf(")") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
@@ -55,31 +55,31 @@ function findVal(paranthesis, op) {
 }
 
 function generateGenes() {
-  var paranthesis = 0;
+  var parenthesis = 0;
   do {
     res_len = Math.round(Math.random() * 11) + 1;
   } while(res_len % 2 == 0);
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    var lastVal = findVal(paranthesis, i);
+    var lastVal = findVal(parenthesis, i);
     if(lastVal == "(") {
-      paranthesis++;
+      parenthesis++;
       i--;
     } else if(lastVal == ")") {
-      paranthesis--;
+      parenthesis--;
       i--;
     }
   }
   
-  while(paranthesis > 0) {
+  while(parenthesis > 0) {
     genes.push(")");
-    paranthesis--;
+    parenthesis--;
   }
 }
 
 function mergeGenes() {
-  var paranthesis = 0;
+  var parenthesis = 0;
   
   if(Math.round(Math.random() * 5) == 1) {
     do {
@@ -91,47 +91,47 @@ function mergeGenes() {
   
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * 5) == 1) {
-      var lastVal = findVal(paranthesis, i);
+      var lastVal = findVal(parenthesis, i);
       if(lastVal == "(") {
-        paranthesis++;
+        parenthesis++;
         i--;
       } else if(lastVal == ")") {
-        paranthesis--;
+        parenthesis--;
         i--;
       }
     } else if(Math.round(Math.random()) == 0 && ((operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0) || (old_genes[i] == "(" && i % 2) || (old_genes[i] == ")" && i % 2 == 0))) {
       genes.push(old_genes[i]);
       if(old_genes[i] == "(") {
-        paranthesis++;
+        parenthesis++;
         i--;
       } else if(old_genes[i] == ")") {
-        paranthesis++;
+        parenthesis++;
         i--;
       }
     } else if((operators.indexOf(old_genes_2nd[i]) != -1 && i % 2) || (vars.indexOf(old_genes_2nd[i]) != -1 && i % 2 == 0) || (old_genes_2nd[i] == "(" && i % 2) || (old_genes_2nd[i] == ")" && i % 2 == 0)) {
       genes.push(old_genes_2nd[i]);
       if(old_genes[i] == "(") {
-        paranthesis++;
+        parenthesis++;
         i--;
       } else if(old_genes[i] == ")") {
-        paranthesis++;
+        parenthesis++;
         i--;
       }
     } else {
-      findVal(paranthesis);
+      findVal(parenthesis);
       if(lastVal == "(") {
-        paranthesis++;
+        parenthesis++;
         i--;
       } else if(lastVal == ")") {
-        paranthesis--;
+        parenthesis--;
         i--;
       }
     }
   }
   
-  while(paranthesis > 0) {
+  while(parenthesis > 0) {
     genes.push(")");
-    paranthesis--;
+    parenthesis--;
   }
   
   alert(genes.join(" "));
