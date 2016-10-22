@@ -8,8 +8,9 @@ var speed = 5;
 var jumping = false;
 var falling = false;
 
-var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "(", ")"];
+var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||"];
 var vars = ["objx", "objy", "objdx", "objdy", "speed"];
+var brackets = ["(", ")"];
 
 var res_len = Math.round(Math.random() * 11) + 1;
 while(res_len % 2 == 0) {
@@ -25,8 +26,11 @@ var best_speed_2nd = 5;
 function findVal(paranthesis, op) {
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
-    if(paranthesis < 1 && randOp == operators.indexOf(")")) {
-      findVal(paranthesis);
+    if(Math.round(Math.random())) {
+      var randBracket = Math.round(Math.random());
+      if(paranthesis < 1 && randBracket == operators.indexOf(")")) {
+        findVal(paranthesis);
+      }
     } else {
       genes.push(operators[randOp]);
       return operators[randOp];
