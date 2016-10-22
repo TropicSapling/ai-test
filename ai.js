@@ -65,12 +65,12 @@ $(function() {
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
 
-    var action = eval(genes.join(""));
+/*    var action = eval(genes.join(""));
     if(action == 1) {
       jumping = true;
     } else if(action == 0) {
       quickFalling = true;
-    }
+    } */
 
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
