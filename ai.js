@@ -8,24 +8,31 @@ var speed = 5;
 var jumping = false;
 var falling = false;
 
-var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "objx", "objy", "objdx", "objdy", "speed", "(", ")"];
+var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "(", ")"];
+var vars = ["objx", "objy", "objdx", "objdy", "speed"];
 
 var res_len = Math.round(Math.random() * 9) + 1;
 var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
-var lastOp = -1;
 var last_speed = 5;
 var best_speed = 5;
 var best_speed_2nd = 5;
+var op = false;
 
-function findOp(paranthesis) {
-  var randOp = Math.round(Math.random() * (operations.length - 1));
-  if((randOp == operations.indexOf(")") && paranthesis < 1) || randOp == lastOp || (randOp < 10 && (lastOp < 10 || (lastOp == operations.indexOf("("))))) {
-    findOp();
+function findVal(paranthesis) {
+  if(op) {
+    var randOp = Math.round(Math.random() * (operators.length - 1));
+    if(paranthesis < 1 && randOp == operators.indexOf(")")) {
+      findVal(paranthesis);
+    } else {
+      genes.push(operators[randOp]);
+      return operators[randOp];
+    }
   } else {
-    genes.push(operations[randOp]);
-    lastOp = randOp;
+    var randVar = Math.round(Math.random() * (vars.length - 1));
+    genes.push(vars[randVar]);
+    return vars[randVar];
   }
 }
 
@@ -33,13 +40,12 @@ function generateGenes() {
   var paranthesis = 0;
   res_len = Math.round(Math.random() * 9) + 1;
   genes = [];
-  lastOp = -1;
   
   for(i = 0; i < res_len; i++) {
-    findOp(paranthesis);
-    if(lastOp > 16 && lastOp < 36) {
+    var lastVal = findVal(paranthesis);
+    if(lastVal == "(") {
       paranthesis++;
-    } else if(lastOp == 36) {
+    } else if(lastVal == ")") {
       paranthesis--;
     }
   }
@@ -52,7 +58,6 @@ function generateGenes() {
 
 function mergeGenes() {
   var paranthesis = 0;
-  lastOp = -1;
   
   if(Math.round(Math.random() * 5) == 1) {
     res_len = Math.round(Math.random() * 9) + 1;
@@ -62,10 +67,10 @@ function mergeGenes() {
   
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * 5) == 1 || (old_genes[i] == operations[lastOp] && old_genes_2nd[i] == operations[lastOp])) {
-      findOp(paranthesis);
-      if(lastOp > 16 && lastOp < 36) {
+      var lastVal = findVal(paranthesis);
+      if(lastVal == "(") {
         paranthesis++;
-      } else if(lastOp == 36) {
+      } else if(lastVal == ")") {
         paranthesis--;
       }
     } else if(Math.round(Math.random()) == 0 && old_genes[i] != operations[lastOp]) {
