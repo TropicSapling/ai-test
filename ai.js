@@ -119,6 +119,8 @@ function mergeGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  alert(genes.join(" "));
 }
 
 generateGenes();
@@ -175,7 +177,7 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(child > 25) {
+      if(child > 50) {
         gen++;
         child = 0;
         speed = last_speed;
