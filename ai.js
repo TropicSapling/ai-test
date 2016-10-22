@@ -11,7 +11,7 @@ var quickFalling = false;
 
 var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
-var res_len = Math.round(Math.random() * 10) + 1;
+var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
 var lastOp = -1;
 
@@ -27,9 +27,9 @@ function findOp() {
 }
 
 function generateGenes() {
-  genes = [];
-  
   var paranthesis = 0;
+  res_len = Math.round(Math.random() * 4) + 1;
+  genes = [];
   
   for(i = 0; i < res_len; i++) {
     findOp();
