@@ -91,7 +91,11 @@ function mergeGenes() {
     } while(res_len % 2 == 0);
   } else {
     do {
-      res_len = randomBetween(old_genes.length, old_genes_2nd.length);
+      if(Math.max(old_genes.length, old_genes_2nd.length) == old_genes.length) {
+        res_len = randomBetween(old_genes.length, old_genes_2nd.length);
+      } else {
+        res_len = randomBetween(old_genes_2nd.length, old_genes.length);
+      }
     } while(res_len % 2 == 0);
   }
   
