@@ -7,9 +7,8 @@ var objdy = Math.abs(objy - window.innerHeight) - 250;
 var speed = 1;
 var jumping = false;
 var falling = false;
-var quickFalling = false;
 
-var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
+var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
 var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
@@ -22,7 +21,7 @@ var best_speed_2nd = 1;
 
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
-  if((randOp == 30 && paranthesis < 1) || randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
+  if((randOp == 34 && paranthesis < 1) || randOp == lastOp || (randOp < 8 && (lastOp < 8 || (lastOp > 14 && lastOp < 34) || lastOp == 36))) {
     findOp();
   } else {
     genes.push(operations[randOp]);
@@ -38,9 +37,9 @@ function generateGenes() {
   
   for(i = 0; i < res_len; i++) {
     findOp(paranthesis);
-    if(lastOp > 10 && lastOp < 30) {
+    if(lastOp > 14 && lastOp < 34) {
       paranthesis++;
-    } else if(lastOp == 30) {
+    } else if(lastOp == 34) {
       paranthesis--;
     }
   }
@@ -64,9 +63,9 @@ function mergeGenes() {
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
       findOp(paranthesis);
-      if(lastOp > 10 && lastOp < 30) {
+      if(lastOp > 14 && lastOp < 34) {
         paranthesis++;
-      } else if(lastOp == 30) {
+      } else if(lastOp == 34) {
         paranthesis--;
       }
     } else if(Math.round(Math.random()) == 0) {
@@ -110,11 +109,7 @@ $(function() {
       }
     } else if(falling) {
       if(y < window.innerHeight - 325) {
-        if(quickFalling) {
-          y += 5;
-        } else {
-          y++;
-        }
+        y += 2.5;
       } else {
         jumping = false;
         falling = false;
@@ -175,10 +170,8 @@ $(function() {
       var func = new Function("return " + genes.join(""));
       var action = func();
       
-      if(action == 1) {
+      if(action) {
         jumping = true;
-      } else if(action == 0) {
-        quickFalling = true;
       }
     } catch(e) {
       if(gen > 0) {
