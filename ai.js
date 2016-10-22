@@ -27,9 +27,9 @@ function findVal(paranthesis, op) {
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
     var randBracket = Math.round(Math.random());
-    if(!(paranthesis < 1 && randBracket == operators.indexOf(")"))) {
-      genes.push(operators[randBracket]);
-      return operators[randBracket];
+    if(!(paranthesis < 1 && randBracket == operators.indexOf(")")) && Math.round(Math.random())) {
+      genes.push(brackets[randBracket]);
+      return brackets[randBracket];
     } else {
       genes.push(operators[randOp]);
       return operators[randOp];
