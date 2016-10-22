@@ -70,7 +70,7 @@ function mergeGenes() {
       }
     } else if(Math.round(Math.random()) == 0 && old_genes[i] != operations[lastOp]) {
       genes.push(old_genes[i]);
-    } else if(old_genes_2nd != operations[lastOp] {
+    } else if(old_genes_2nd != operations[lastOp]) {
       genes.push(old_genes_2nd[i]);
     } else {
       findOp(paranthesis);
