@@ -14,9 +14,11 @@ var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy,
 var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
 var old_genes = [];
+var old_genes_2nd = [];
 var lastOp = -1;
 var last_speed = 1;
 var best_speed = 1;
+var best_speed_2nd = 1;
 
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
@@ -142,6 +144,9 @@ $(function() {
         if(speed > best_speed) {
           old_genes = genes;
           best_speed = speed;
+        } else if(speed > best_speed_2nd) {
+          old_genes_2nd = genes;
+          best_speed_2nd = speed;
         }
         
         child++;
