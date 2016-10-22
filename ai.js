@@ -68,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if(action == 0) {
       quickFalling = true;
     }
+
+    if(x > objx && x < (objx + objdx)) {
+      // Touching obstacle
+    }
     
     speed = speed * 1.00002;
   }, 4);
