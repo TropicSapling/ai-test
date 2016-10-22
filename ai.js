@@ -33,6 +33,7 @@ function generateGenes() {
   var paranthesis = 0;
   res_len = Math.round(Math.random() * 4) + 1;
   genes = [];
+  lastOp = -1;
   
   for(i = 0; i < res_len; i++) {
     findOp();
@@ -51,6 +52,7 @@ function generateGenes() {
 
 function mergeGenes() {
   var paranthesis = 0;
+  lastOp = -1;
   
   if(Math.round(Math.random() * gen) == 1) {
     res_len = Math.round(Math.random() * 4) + 1;
