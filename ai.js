@@ -26,8 +26,20 @@ function findOp() {
   }
 }
 
+var paranthesis = 0;
+
 for(i = 0; i < res_len; i++) {
   findOp();
+  if(lastOp > 10 && lastOp < 30) {
+    paranthesis++;
+  } else if(lastOp == 30) {
+    paranthesis--;
+  }
+}
+
+while(paranthesis) {
+  genes.push(")");
+  paranthesis--;
 }
 
 var gen = 0;
