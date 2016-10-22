@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
       quickFalling = true;
     }
 
-    if((objx + objdx) >= x && objx <= x && objy >= y && (objy - objdy) <= y) {
+    if((objx + objdx) >= x && objx <= x && (objy + objdy) >= y && objy <= y) {
       // Touching obstacle
     }
     
