@@ -44,8 +44,6 @@ function generateGenes() {
     }
   }
   
-  alert(paranthesis);
-  
   while(paranthesis) {
     genes.push(")");
     paranthesis--;
@@ -74,8 +72,6 @@ function mergeGenes() {
       genes.push(old_genes[i]);
     }
   }
-  
-  alert(paranthesis);
   
   while(paranthesis) {
     genes.push(")");
