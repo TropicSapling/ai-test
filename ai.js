@@ -9,7 +9,7 @@ var jumping = false;
 var falling = false;
 
 var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||"];
-var vars = ["objx", "objy", "objdx", "objdy", "speed", "rand"];
+var vars = ["objx", "objy", "objdx", "objdy", "speed"];
 var brackets = ["(", ")"];
 
 var res_len = Math.round(Math.random() * 15) + 1;
@@ -38,7 +38,7 @@ function findVal(paranthesis, op) {
   } else {
     var randVar = Math.round(Math.random() * (vars.length - 1));
     
-    if(vars[randVar] == "rand") {
+    if(Math.round(Math.random())) {
       randVar = Math.round(Math.random() * 100);
     }
     
