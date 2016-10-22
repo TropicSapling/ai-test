@@ -78,10 +78,10 @@ $(function() {
     }
     
     speed = speed * 1.00002;
-    $('#speed').slider('value', speed);
+    $('#speed').val(speed);
   }, 4);
   
   document.getElementById("speed").addEventListener("change", function() {
-    speed = $("#speed").value;
+    speed = $("#speed").val();
   }, false);
 });
