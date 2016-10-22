@@ -61,17 +61,24 @@ function mergeGenes() {
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    if(Math.round(Math.random() * 5) == 1) {
+    if(Math.round(Math.random() * 5) == 1 || (old_genes[i] == operations[lastOp] && old_genes_2nd[i] == operations[lastOp])) {
       findOp(paranthesis);
       if(lastOp > 16 && lastOp < 36) {
         paranthesis++;
       } else if(lastOp == 36) {
         paranthesis--;
       }
-    } else if(Math.round(Math.random()) == 0) {
+    } else if(Math.round(Math.random()) == 0 && old_genes[i] != operations[lastOp]) {
       genes.push(old_genes[i]);
-    } else {
+    } else if(old_genes_2nd != operations[lastOp] {
       genes.push(old_genes_2nd[i]);
+    } else {
+      findOp(paranthesis);
+      if(lastOp > 16 && lastOp < 36) {
+        paranthesis++;
+      } else if(lastOp == 36) {
+        paranthesis--;
+      }
     }
   }
   
