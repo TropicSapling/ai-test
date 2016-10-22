@@ -9,7 +9,7 @@ var jumping = false;
 var falling = false;
 
 var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||"];
-var vars = ["objx", "objy", "objdx", "objdy", "speed"];
+var vars = ["x", "y", "objx", "objy", "objdx", "objdy", "speed"];
 var brackets = ["(", ")"];
 
 var res_len = Math.round(Math.random() * 11) + 1;
