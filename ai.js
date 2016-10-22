@@ -26,18 +26,18 @@ var best_speed_2nd = 5;
 function findVal(paranthesis, op) {
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
-    genes.push(operators[randOp]);
-    return operators[randOp];
-  } else {
-    var randVar = Math.round(Math.random() * (vars.length - 1));
     var randBracket = Math.round(Math.random());
     if(!(paranthesis < 1 && randBracket == operators.indexOf(")")) && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
-      genes.push(vars[randVar]);
-      return vars[randVar];
+      genes.push(operators[randOp]);
+      return operators[randOp];
     }
+  } else {
+    var randVar = Math.round(Math.random() * (vars.length - 1));
+    genes.push(vars[randVar]);
+    return vars[randVar];
   }
 }
 
