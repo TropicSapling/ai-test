@@ -113,7 +113,7 @@ $(function() {
   
   setInterval(function() {
     try {
-      var action = eval(genes.join(""));
+      var action = new Function("return" + genes.join("")));
       
       if(action == 1) {
         jumping = true;
