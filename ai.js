@@ -15,6 +15,8 @@ var res_len = Math.round(Math.random() * 10) + 1;
 var genes = [];
 
 function generateGenes() {
+  genes = [];
+  
   for(i = 0; i < res_len; i++) {
     genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
   }
