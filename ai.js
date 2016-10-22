@@ -58,6 +58,7 @@ function generateGenes() {
     var lastVal = findVal(paranthesis, i);
     if(lastVal == "(") {
       paranthesis++;
+      i--;
     } else if(lastVal == ")") {
       paranthesis--;
     }
@@ -87,6 +88,7 @@ function mergeGenes() {
       var lastVal = findVal(paranthesis, i);
       if(lastVal == "(") {
         paranthesis++;
+        i--;
       } else if(lastVal == ")") {
         paranthesis--;
       }
