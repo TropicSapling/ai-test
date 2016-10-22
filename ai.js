@@ -69,8 +69,10 @@ function mergeGenes() {
       } else if(lastOp == 30) {
         paranthesis--;
       }
-    } else {
+    } else if(Math.round(Math.random()) == 0) {
       genes.push(old_genes[i]);
+    } else {
+      genes.push(old_genes_2nd[i]);
     }
   }
   
