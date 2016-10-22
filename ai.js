@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if((objx + objdx) >= x && (objx - objdx) <= x && (objy + objdy) >= y && (objy - objdy) <= y) {
       // Touching obstacle
+      alert("DEAD!");
     }
     
     speed = speed * 1.00002;
