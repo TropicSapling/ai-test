@@ -71,8 +71,6 @@ function mergeGenes() {
     }
   }
   
-  alert(paranthesis);
-  
   while(paranthesis) {
     genes.push(")");
     paranthesis--;
