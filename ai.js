@@ -158,7 +158,6 @@ $(function() {
     }
     
     speed = speed * 1.00002;
-    $('#speed').val(speed);
   }, 4);
   
   setInterval(function() {
