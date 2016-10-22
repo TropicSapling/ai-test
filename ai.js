@@ -80,7 +80,7 @@ $(function() {
       } else if(action == 0) {
         quickFalling = true;
       }
-    } catch {
+    } catch(e) {
       generateGenes();
     } finally {
       if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
