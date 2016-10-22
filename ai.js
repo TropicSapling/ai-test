@@ -52,8 +52,10 @@ function generateGenes() {
     var lastVal = findVal(paranthesis, i);
     if(lastVal == "(") {
       paranthesis++;
+      i--;
     } else if(lastVal == ")") {
       paranthesis--;
+      i--;
     }
   }
   
@@ -79,8 +81,10 @@ function mergeGenes() {
       var lastVal = findVal(paranthesis, i);
       if(lastVal == "(") {
         paranthesis++;
+        i--;
       } else if(lastVal == ")") {
         paranthesis--;
+        i--;
       }
     } else if(Math.round(Math.random()) == 0 && ((operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0))) {
       genes.push(old_genes[i]);
@@ -90,8 +94,10 @@ function mergeGenes() {
       findVal(paranthesis);
       if(lastVal == "(") {
         paranthesis++;
+        i--;
       } else if(lastVal == ")") {
         paranthesis--;
+        i--;
       }
     }
   }
