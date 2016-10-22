@@ -54,14 +54,14 @@ function mergeGenes() {
   var paranthesis = 0;
   lastOp = -1;
   
-  if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
+  if(Math.round(Math.random() * 5) == 1) {
     res_len = Math.round(Math.random() * 9) + 1;
   }
   
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    if(Math.round(Math.random() * (20 * (gen / 5))) == 1) {
+    if(Math.round(Math.random() * 5) == 1) {
       findOp(paranthesis);
       if(lastOp > 16 && lastOp < 36) {
         paranthesis++;
@@ -135,7 +135,7 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(child > 20 / (((gen + 1) / 10) + 1)) {
+      if(child > 25) {
         gen++;
         child = 0;
         speed = last_speed;
