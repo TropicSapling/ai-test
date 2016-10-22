@@ -11,6 +11,7 @@ var falling = false;
 var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "(", ")"];
 var vars = ["objx", "objy", "objdx", "objdy", "speed"];
 
+var res_len = Math.round(Math.random() * 11) + 1;
 while(res_len % 2) {
   res_len = Math.round(Math.random() * 11) + 1;
 }
