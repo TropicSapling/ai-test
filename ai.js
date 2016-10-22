@@ -109,7 +109,7 @@ $(function() {
       }
     } else if(falling) {
       if(y < window.innerHeight - 325) {
-        y += 2.5;
+        y++;
       } else {
         jumping = false;
         falling = false;
