@@ -17,7 +17,7 @@ var lastOp = -1;
 
 function findOp() {
   var randOp = Math.round(Math.random() * (operations.length - 1));
-  if(randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 31)))) {
+  if(randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp = 32))) {
     lastOp = randOp;
     findOp();
   } else {
