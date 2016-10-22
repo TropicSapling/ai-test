@@ -18,9 +18,9 @@ var lastOp = -1;
 var last_speed = 1;
 var best_speed = 1;
 
-function findOp() {
+function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
-  if(randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
+  if((randOp == 30 && paranthesis < 1) || randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
     lastOp = randOp;
     findOp();
   } else {
@@ -36,7 +36,7 @@ function generateGenes() {
   lastOp = -1;
   
   for(i = 0; i < res_len; i++) {
-    findOp();
+    findOp(paranthesis);
     if(lastOp > 10 && lastOp < 30) {
       paranthesis++;
     } else if(lastOp == 30) {
@@ -62,7 +62,7 @@ function mergeGenes() {
   
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * gen) == 1) {
-      findOp();
+      findOp(paranthesis);
       if(lastOp > 10 && lastOp < 30) {
         paranthesis++;
       } else if(lastOp == 30) {
