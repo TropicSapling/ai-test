@@ -133,8 +133,6 @@ function mergeGenes() {
     genes.push(")");
     parenthesis--;
   }
-  
-  alert(genes.join(" "));
 }
 
 generateGenes();
