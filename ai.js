@@ -13,8 +13,21 @@ var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy,
 
 var res_len = Math.round(Math.random() * 10) + 1;
 var genes = [];
+var lastOp = -1;
+
+function findOp() {
+  var randOp = Math.round(Math.random() * (operations.length - 1));
+  if(randOp == lastOp) {
+    lastOp = randOp;
+    findOp();
+  } else {
+    genes.push(operations[randOp]);
+    lastOp = randOp;
+  }
+}
+
 for(i = 0; i < res_len; i++) {
-  genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
+  findOp();
 }
 
 var gen = 0;
