@@ -43,7 +43,7 @@ function generateGenes() {
     }
   }
   
-  while(paranthesis) {
+  while(paranthesis > 0) {
     genes.push(")");
     paranthesis--;
   }
@@ -72,7 +72,7 @@ function mergeGenes() {
     }
   }
   
-  while(paranthesis) {
+  while(paranthesis > 0) {
     genes.push(")");
     paranthesis--;
   }
