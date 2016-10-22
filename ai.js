@@ -17,6 +17,9 @@ for(i = 0; i < res_len; i++) {
   genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
 }
 
+var gen = 0;
+var child = 0;
+
 document.addEventListener('DOMContentLoaded', function() {
   var canvas = document.getElementById("game");
   var game = canvas.getContext("2d");
@@ -27,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(function() {
     game.clearRect(0, 0, window.innerWidth, window.innerHeight);
     game.font = "24px Arial";
-    game.fillText("Generation: 1", 16, 32);
-    game.fillText("Child: 1", 16, 56);
+    game.fillText("Generation: " + (gen + 1), 16, 32);
+    game.fillText("Child: " + (child + 1), 16, 56);
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
     
@@ -71,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
+      child++;
     }
     
     speed = speed * 1.00002;
