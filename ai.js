@@ -30,6 +30,9 @@ function findVal(paranthesis, op) {
       var randBracket = Math.round(Math.random());
       if(paranthesis < 1 && randBracket == operators.indexOf(")")) {
         findVal(paranthesis);
+      } else {
+        genes.push(operators[randBracket]);
+        return operators[randBracket];
       }
     } else {
       genes.push(operators[randOp]);
