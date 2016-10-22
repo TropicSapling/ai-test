@@ -100,13 +100,17 @@ $(function() {
     
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
-        y -= 2.5;
+        y--;
       } else {
         falling = true;
       }
     } else if(falling) {
       if(y < window.innerHeight - 325) {
-        y += 2.5;
+        if(quickFalling) {
+          y += 5;
+        } else {
+          y++;
+        }
       } else {
         jumping = false;
         falling = false;
