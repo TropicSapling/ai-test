@@ -68,6 +68,11 @@ function mergeGenes() {
       genes.push(old_genes[i]);
     }
   }
+  
+  while(paranthesis) {
+    genes.push(")");
+    paranthesis--;
+  }
 }
 
 generateGenes();
