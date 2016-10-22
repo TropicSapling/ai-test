@@ -8,7 +8,7 @@ var speed = 1;
 var jumping = false;
 var falling = false;
 
-var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
+var operations = ["+", "-", "*", "/", "<", "<=", ">=", ">", "Math.PI", "Math.E", "objx", "objy", "objdx", "objdy", "speed", "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
 var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
