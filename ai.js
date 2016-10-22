@@ -13,6 +13,7 @@ var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy,
 
 var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
+var old_genes = [];
 var lastOp = -1;
 
 function findOp() {
@@ -44,6 +45,8 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  old_genes.push(genes);
 }
 
 function mergeGenes() {
@@ -53,7 +56,6 @@ function mergeGenes() {
     res_len = Math.round(Math.random() * 4) + 1;
   }
   
-  var old_genes = genes;
   genes = [];
   
   for(i = 0; i < res_len; i++) {
@@ -73,6 +75,8 @@ function mergeGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  old_genes.push(genes);
 }
 
 generateGenes();
@@ -158,6 +162,8 @@ $(function() {
         quickFalling = true;
       }
     } catch(e) {
+      old_genes.pop();
+      
       if(gen > 0) {
         mergeGenes();
       } else {
