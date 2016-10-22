@@ -101,6 +101,7 @@ $(function() {
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
       child++;
+      generateGenes();
       objx = window.innerWidth;
       objdx = 25 + (Math.round(Math.random() * 50));
       objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
