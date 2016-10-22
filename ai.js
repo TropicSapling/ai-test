@@ -15,6 +15,7 @@ var res_len = Math.round(Math.random() * 5) + 1;
 var genes = [];
 var old_genes = [];
 var lastOp = -1;
+var last_speed = 1;
 
 function findOp() {
   var randOp = Math.round(Math.random() * (operations.length - 1));
@@ -45,8 +46,6 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
-  
-  old_genes.push(genes);
 }
 
 function mergeGenes() {
@@ -75,8 +74,6 @@ function mergeGenes() {
     genes.push(")");
     paranthesis--;
   }
-  
-  old_genes.push(genes);
 }
 
 generateGenes();
@@ -135,9 +132,16 @@ $(function() {
       if(child > max_children) {
         gen++;
         child = 0;
+        speed = 1;
         mergeGenes();
       } else {
+        if(speed > last_speed) {
+          old_genes = genes;
+          last_speed = speed;
+        }
+        
         child++;
+        speed = 1;
         generateGenes();
       }
       
@@ -162,8 +166,6 @@ $(function() {
         quickFalling = true;
       }
     } catch(e) {
-      old_genes.pop();
-      
       if(gen > 0) {
         mergeGenes();
       } else {
