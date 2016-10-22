@@ -18,6 +18,8 @@ function generateGenes() {
   for(i = 0; i < res_len; i++) {
     genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
   }
+  
+  alert(genes.join(""));
 }
 
 generateGenes();
@@ -69,8 +71,6 @@ $(function() {
     
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
-
-    alert(genes.join(""));
     
     try {
       var action = eval(genes.join(""));
