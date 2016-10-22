@@ -47,9 +47,9 @@ function findVal(paranthesis, op) {
 
 function generateGenes() {
   var paranthesis = 0;
-  while(res_len % 2 == 0) {
+  do {
     res_len = Math.round(Math.random() * 11) + 1;
-  }
+  } while(res_len % 2 == 0);
   genes = [];
   
   for(i = 0; i < res_len; i++) {
@@ -71,9 +71,9 @@ function mergeGenes() {
   var paranthesis = 0;
   
   if(Math.round(Math.random() * 5) == 1) {
-    while(res_len % 2 == 0) {
+    do {
       res_len = Math.round(Math.random() * 11) + 1;
-    }
+    } while(res_len % 2 == 0);
   }
   
   genes = [];
