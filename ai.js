@@ -78,12 +78,20 @@ function generateGenes() {
   }
 }
 
+function randomBetween(min, max) {
+  return Math.floor(Math.random()*(max-min+1)+min);
+}
+
 function mergeGenes() {
   var parenthesis = 0;
   
   if(Math.round(Math.random() * 5) == 1) {
     do {
       res_len = Math.round(Math.random() * 11) + 1;
+    } while(res_len % 2 == 0);
+  } else {
+    do {
+      res_len = randomBetween(old_genes.length, old_genes_2nd.length);
     } while(res_len % 2 == 0);
   }
   
