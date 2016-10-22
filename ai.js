@@ -11,7 +11,9 @@ var falling = false;
 var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "(", ")"];
 var vars = ["objx", "objy", "objdx", "objdy", "speed"];
 
-var res_len = Math.round(Math.random() * 11) + 1;
+while(res_len % 2) {
+  res_len = Math.round(Math.random() * 11) + 1;
+}
 var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
@@ -37,7 +39,9 @@ function findVal(paranthesis, op) {
 
 function generateGenes() {
   var paranthesis = 0;
-  res_len = Math.round(Math.random() * 11) + 1;
+  while(res_len % 2) {
+    res_len = Math.round(Math.random() * 11) + 1;
+  }
   genes = [];
   
   for(i = 0; i < res_len; i++) {
@@ -61,7 +65,9 @@ function mergeGenes() {
   var paranthesis = 0;
   
   if(Math.round(Math.random() * 5) == 1) {
-    res_len = Math.round(Math.random() * 11) + 1;
+    while(res_len % 2) {
+      res_len = Math.round(Math.random() * 11) + 1;
+    }
   }
   
   genes = [];
