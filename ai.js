@@ -4,7 +4,7 @@ var objx = window.innerWidth;
 var objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
 var objdx = 25 + (Math.round(Math.random() * 50));
 var objdy = Math.abs(objy - window.innerHeight) - 250;
-var speed = 2;
+var speed = 5;
 var jumping = false;
 var falling = false;
 
@@ -15,9 +15,9 @@ var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
 var lastOp = -1;
-var last_speed = 1;
-var best_speed = 1;
-var best_speed_2nd = 1;
+var last_speed = 5;
+var best_speed = 5;
+var best_speed_2nd = 5;
 
 function findOp(paranthesis) {
   var randOp = Math.round(Math.random() * (operations.length - 1));
