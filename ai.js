@@ -131,7 +131,7 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(child > 20 / (gen / 2)) {
+      if(child > 15 / ((gen + 1) / 2)) {
         gen++;
         child = 0;
         speed = last_speed;
