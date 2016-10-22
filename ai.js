@@ -90,6 +90,7 @@ $(function() {
     game.fillStyle = "black";
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
 
+    alert(genes.join(""));
     var action = eval(genes.join(""));
     if(action == 1) {
       jumping = true;
