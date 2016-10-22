@@ -18,9 +18,8 @@ var old_genes_2nd = [];
 var last_speed = 5;
 var best_speed = 5;
 var best_speed_2nd = 5;
-var op = false;
 
-function findVal(paranthesis) {
+function findVal(paranthesis, op) {
   if(op) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
     if(paranthesis < 1 && randOp == operators.indexOf(")")) {
@@ -42,7 +41,7 @@ function generateGenes() {
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    var lastVal = findVal(paranthesis);
+    var lastVal = findVal(paranthesis, i);
     if(lastVal == "(") {
       paranthesis++;
     } else if(lastVal == ")") {
@@ -67,7 +66,7 @@ function mergeGenes() {
   
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * 5) == 1 || (old_genes[i] == operations[lastOp] && old_genes_2nd[i] == operations[lastOp])) {
-      var lastVal = findVal(paranthesis);
+      var lastVal = findVal(paranthesis, i);
       if(lastVal == "(") {
         paranthesis++;
       } else if(lastVal == ")") {
