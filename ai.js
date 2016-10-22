@@ -28,7 +28,7 @@ function findVal(paranthesis, op) {
   
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
-    if(paranthesis > 0 && randBracket == operators.indexOf(")") && Math.round(Math.random())) {
+    if(paranthesis > 0 && randBracket == brackets.indexOf(")") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
@@ -37,7 +37,7 @@ function findVal(paranthesis, op) {
     }
   } else {
     var randVar = Math.round(Math.random() * (vars.length - 1));
-    if(randBracket == operators.indexOf("(") && Math.round(Math.random())) {
+    if(randBracket == brackets.indexOf("(") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
@@ -68,7 +68,7 @@ function generateGenes() {
     paranthesis--;
   }
   
-  alert(genes);
+  alert(genes.join(" "));
 }
 
 function mergeGenes() {
