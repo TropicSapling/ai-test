@@ -16,6 +16,7 @@ var genes = [];
 var old_genes = [];
 var lastOp = -1;
 var last_speed = 1;
+var best_speed = 1;
 
 function findOp() {
   var randOp = Math.round(Math.random() * (operations.length - 1));
@@ -132,16 +133,16 @@ $(function() {
       if(child > max_children) {
         gen++;
         child = 0;
-        speed = 1;
+        speed = last_speed;
         mergeGenes();
       } else {
-        if(speed > last_speed) {
+        if(speed > best_speed) {
           old_genes = genes;
-          last_speed = speed;
+          best_speed = speed;
         }
         
         child++;
-        speed = 1;
+        speed = last_speed;
         generateGenes();
       }
       
@@ -176,5 +177,6 @@ $(function() {
   
   document.getElementById("speed").addEventListener("change", function() {
     speed = $("#speed").val();
+    last_speed = speed;
   }, false);
 });
