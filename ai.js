@@ -81,7 +81,6 @@ generateGenes();
 
 var gen = 0;
 var child = 0;
-var max_children = 9;
 
 $(function() {
   var canvas = document.getElementById("game");
@@ -130,7 +129,7 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(child > max_children) {
+      if(child > 20 / (gen / 2)) {
         gen++;
         child = 0;
         speed = last_speed;
