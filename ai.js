@@ -63,6 +63,8 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
+  
+  alert(genes);
 }
 
 function mergeGenes() {
