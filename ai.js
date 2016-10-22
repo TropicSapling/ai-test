@@ -44,8 +44,6 @@ function generateGenes() {
     genes.push(")");
     paranthesis--;
   }
-  
-  alert(genes.join(""));
 }
 
 generateGenes();
