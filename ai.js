@@ -24,10 +24,11 @@ var best_speed = 5;
 var best_speed_2nd = 5;
 
 function findVal(paranthesis, op) {
+  var randBracket = Math.round(Math.random());
+  
   if(op % 2) {
     var randOp = Math.round(Math.random() * (operators.length - 1));
-    var randBracket = Math.round(Math.random());
-    if(!(paranthesis < 1 && randBracket == operators.indexOf(")")) && Math.round(Math.random())) {
+    if(paranthesis > 0 && randBracket == operators.indexOf(")") && Math.round(Math.random())) {
       genes.push(brackets[randBracket]);
       return brackets[randBracket];
     } else {
@@ -36,8 +37,13 @@ function findVal(paranthesis, op) {
     }
   } else {
     var randVar = Math.round(Math.random() * (vars.length - 1));
-    genes.push(vars[randVar]);
-    return vars[randVar];
+    if(randBracket == operators.indexOf("(") && Math.round(Math.random())) {
+      genes.push(brackets[randBracket]);
+      return brackets[randBracket];
+    } else {
+      genes.push(vars[randVar]);
+      return vars[randVar];
+    }
   }
 }
 
@@ -54,7 +60,6 @@ function generateGenes() {
       paranthesis++;
     } else if(lastVal == ")") {
       paranthesis--;
-      i--;
     }
   }
   
@@ -84,7 +89,6 @@ function mergeGenes() {
         paranthesis++;
       } else if(lastVal == ")") {
         paranthesis--;
-        i--;
       }
     } else if(Math.round(Math.random()) == 0 && ((operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0))) {
       genes.push(old_genes[i]);
