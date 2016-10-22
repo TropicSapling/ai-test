@@ -13,34 +13,14 @@ var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy,
 
 var res_len = Math.round(Math.random() * 10) + 1;
 var genes = [];
-var lastOp = -1;
 
-function findOp() {
-  var randOp = Math.round(Math.random() * (operations.length - 1));
-  if(randOp == lastOp || (randOp < 4 && (lastOp < 4 || (lastOp > 10 && lastOp < 30) || lastOp == 32))) {
-    lastOp = randOp;
-    findOp();
-  } else {
-    genes.push(operations[randOp]);
-    lastOp = randOp;
+function generateGenes() {
+  for(i = 0; i < res_len; i++) {
+    genes.push(operations[Math.round(Math.random() * (operations.length - 1))]);
   }
 }
 
-var paranthesis = 0;
-
-for(i = 0; i < res_len; i++) {
-  findOp();
-  if(lastOp > 10 && lastOp < 30) {
-    paranthesis++;
-  } else if(lastOp == 30) {
-    paranthesis--;
-  }
-}
-
-while(paranthesis) {
-  genes.push(")");
-  paranthesis--;
-}
+generateGenes();
 
 var gen = 0;
 var child = 0;
@@ -91,24 +71,30 @@ $(function() {
     game.fillRect(objx, objy, objdx, objdy); // Obstacle
 
     alert(genes.join(""));
-    var action = eval(genes.join(""));
-    if(action == 1) {
-      jumping = true;
-    } else if(action == 0) {
-      quickFalling = true;
-    }
-
-    if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
-      // Touching obstacle
-      child++;
-      objx = window.innerWidth;
-      objdx = 25 + (Math.round(Math.random() * 50));
-      objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
-      objdy = Math.abs(objy - window.innerHeight) - 250;
-    }
     
-    speed = speed * 1.00002;
-    $('#speed').val(speed);
+    try {
+      var action = eval(genes.join(""));
+      
+      if(action == 1) {
+        jumping = true;
+      } else if(action == 0) {
+        quickFalling = true;
+      }
+    } catch {
+      generateGenes();
+    } finally {
+      if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
+        // Touching obstacle
+        child++;
+        objx = window.innerWidth;
+        objdx = 25 + (Math.round(Math.random() * 50));
+        objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
+        objdy = Math.abs(objy - window.innerHeight) - 250;
+      }
+      
+      speed = speed * 1.00002;
+      $('#speed').val(speed);
+    }
   }, 4);
   
   document.getElementById("speed").addEventListener("change", function() {
