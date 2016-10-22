@@ -7,7 +7,7 @@ var objdy = Math.abs(objy - window.innerHeight) - 250;
 var speed = 1;
 var jumping = false;
 var falling = false;
-var quickfalling = false;
+var quickFalling = false;
 
 var operations = ["+", "-", "*", "/", Math.PI, Math.E, objx, objy, objdx, objdy, speed, "Math.abs(", "Math.acos(", "Math.asin(", "Math.atan(", "Math.atan2(", "Math.ceil(", "Math.cos(", "Math.exp(", "Math.floor(", "Math.log(", "Math.max(", "Math.min(", "Math.pow(", "Math.random(", "Math.round(", "Math.sin(", "Math.sqrt(", "Math.tan(", "(", ")", ","];
 
