@@ -120,7 +120,7 @@ function mergeGenes() {
       } else {
         res_len = randomBetween(old_genes.length, old_genes_2nd.length);
       }
-    } while(res_len % 2 == 0 || !(old_genes.length == old_genes_2nd.length && old_genes.length % 2 == 0));
+    } while(res_len % 2 == 0 && !(old_genes.length == old_genes_2nd.length && old_genes.length % 2 == 0));
     
     if(old_genes.length == old_genes_2nd.length && old_genes.length % 2 == 0) {
       res_len = old_genes.length + 1;
