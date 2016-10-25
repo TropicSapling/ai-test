@@ -204,13 +204,13 @@ $(function() {
     }
     
     if(jumping && !falling) {
-      if(y >= window.innerHeight - 425) {
+      if(y > window.innerHeight - 425) {
         y -= Math.round((y - (window.innerHeight - 425)) * speed * 100) / 10000;
       } else {
         falling = true;
       }
     } else if(falling) {
-      if(y <= window.innerHeight - 325) {
+      if(y < window.innerHeight - 325) {
         y += Math.round((window.innerHeight - 325 - y) * speed * 100) / 10000;
       } else {
         jumping = false;
