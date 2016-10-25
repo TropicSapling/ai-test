@@ -205,14 +205,14 @@ $(function() {
     
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
-        y -= Math.round((y - (window.innerHeight - 425)) * speed) / 100;
+        y -= Math.ceil((y - (window.innerHeight - 425)) * speed) / 100;
       } else {
         y = window.innerHeight - 424;
         falling = true;
       }
     } else if(falling) {
       if(y < window.innerHeight - 325) {
-        y += Math.round((y - (window.innerHeight - 425)) * speed) / 100;
+        y += Math.ceil((y - (window.innerHeight - 425)) * speed) / 100;
       } else {
         y = window.innerHeight - 325;
         jumping = false;
