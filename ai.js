@@ -178,7 +178,7 @@ $(function() {
   canvas.setAttribute("width", window.innerWidth);
   canvas.setAttribute("height", window.innerHeight);
   
-  setInterval(function() {
+  interval(function() {
     game.clearRect(0, 0, window.innerWidth, window.innerHeight);
     game.font = "24px Arial";
     game.fillText("Generation: " + (gen + 1), 16, 32);
@@ -187,6 +187,21 @@ $(function() {
     game.fillText(genes.join(" "), 256, 32);
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
+    
+    try {
+      var func = new Function("return " + genes.join(" "));
+      var action = func();
+      
+      if(action == true) {
+        jumping = true;
+      }
+    } catch(e) {
+      if(gen > 0) {
+        mergeGenes();
+      } else {
+        generateGenes();
+      }
+    }
     
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
@@ -250,24 +265,7 @@ $(function() {
     }
     
     speed = speed * 1.00002;
-  }, 4);
-  
-  setInterval(function() {
-    try {
-      var func = new Function("return " + genes.join(" "));
-      var action = func();
-      
-      if(action == true) {
-        jumping = true;
-      }
-    } catch(e) {
-      if(gen > 0) {
-        mergeGenes();
-      } else {
-        generateGenes();
-      }
-    }
-  }, 40);
+  }, 0);
   
   document.getElementById("speed").addEventListener("change", function() {
     speed = $("#speed").val();
