@@ -163,6 +163,8 @@ function mergeGenes() {
         op--;
       }
     }
+    
+    op++;
   }
   
   op = 0;
