@@ -207,7 +207,7 @@ $(function() {
       if(y > window.innerHeight - 425) {
         y -= Math.round((y - (window.innerHeight - 425)) * speed * 100) / 10000;
       } else {
-        y = window.innerHeight - 425;
+        y = window.innerHeight - 424;
         falling = true;
       }
     } else if(falling) {
