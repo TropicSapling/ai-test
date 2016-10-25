@@ -22,6 +22,7 @@ var old_genes_2nd = [];
 var last_speed = 3;
 var best_speed = 3;
 var best_speed_2nd = 3;
+var op = 0;
 
 
 function interval(func, wait, times){
@@ -42,7 +43,7 @@ function interval(func, wait, times){
   setTimeout(interv, wait);
 };
 
-function findVal(parenthesis, op) {
+function findVal(parenthesis) {
   var randBracket = Math.round(Math.random());
   
   if(op % 2) {
@@ -81,15 +82,19 @@ function generateGenes() {
   genes = [];
   
   for(i = 0; i < res_len; i++) {
-    var lastVal = findVal(parenthesis, i);
+    var lastVal = findVal(parenthesis);
     if(lastVal == "(") {
       parenthesis++;
-      i--;
+      op--;
     } else if(lastVal == ")") {
       parenthesis--;
-      i--;
+      op--;
     }
+    
+    op++;
   }
+  
+  op = 0;
   
   while(parenthesis > 0) {
     genes.push(")");
@@ -122,43 +127,45 @@ function mergeGenes() {
   
   for(i = 0; i < res_len; i++) {
     if(Math.round(Math.random() * 5) == 1) {
-      var lastVal = findVal(parenthesis, i);
+      var lastVal = findVal(parenthesis);
       if(lastVal == "(") {
         parenthesis++;
-        i--;
+        op--;
       } else if(lastVal == ")") {
         parenthesis--;
-        i--;
+        op--;
       }
-    } else if(Math.round(Math.random()) == 0 && (($.isNumeric(old_genes[i]) && i % 2 == 0) || (operators.indexOf(old_genes[i]) != -1 && i % 2) || (vars.indexOf(old_genes[i]) != -1 && i % 2 == 0) || (old_genes[i] == "(" && i % 2) || (old_genes[i] == ")" && i % 2 == 0))) {
+    } else if(Math.round(Math.random()) == 0 && (($.isNumeric(old_genes[i]) && op % 2 == 0) || (operators.indexOf(old_genes[i]) != -1 && op % 2) || (vars.indexOf(old_genes[i]) != -1 && op % 2 == 0) || (old_genes[i] == "(" && op % 2) || (old_genes[i] == ")" && op % 2 == 0))) {
       genes.push(old_genes[i]);
       if(old_genes[i] == "(") {
         parenthesis++;
-        i--;
+        op--;
       } else if(old_genes[i] == ")") {
         parenthesis++;
-        i--;
+        op--;
       }
-    } else if(($.isNumeric(old_genes_2nd[i]) && i % 2 == 0) || (operators.indexOf(old_genes_2nd[i]) != -1 && i % 2) || (vars.indexOf(old_genes_2nd[i]) != -1 && i % 2 == 0) || (old_genes_2nd[i] == "(" && i % 2) || (old_genes_2nd[i] == ")" && i % 2 == 0)) {
+    } else if(($.isNumeric(old_genes_2nd[i]) && op % 2 == 0) || (operators.indexOf(old_genes_2nd[i]) != -1 && op % 2) || (vars.indexOf(old_genes_2nd[i]) != -1 && op % 2 == 0) || (old_genes_2nd[i] == "(" && op % 2) || (old_genes_2nd[i] == ")" && op % 2 == 0)) {
       genes.push(old_genes_2nd[i]);
       if(old_genes[i] == "(") {
         parenthesis++;
-        i--;
+        op--;
       } else if(old_genes[i] == ")") {
         parenthesis++;
-        i--;
+        op--;
       }
     } else {
-      var lastVal = findVal(parenthesis, i);
+      var lastVal = findVal(parenthesis);
       if(lastVal == "(") {
         parenthesis++;
-        i--;
+        op--;
       } else if(lastVal == ")") {
         parenthesis--;
-        i--;
+        op--;
       }
     }
   }
+  
+  op = 0;
   
   while(parenthesis > 0) {
     genes.push(")");
