@@ -194,7 +194,7 @@ function checkCond() {
     func = new Function("return " + genes.join(" "));
     action = func();
         
-    if(action == true && speed == last_speed) {
+    if(action == true && speed <= last_speed * 1.00002) {
       if(gen > 0) {
         mergeGenes();
       } else {
