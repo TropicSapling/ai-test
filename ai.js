@@ -186,6 +186,37 @@ generateGenes();
 
 var gen = 0;
 var child = 0;
+var func = new Function("return " + genes.join(" "));
+var action = func();
+
+function checkCond() {
+  try {
+    func = new Function("return " + genes.join(" "));
+    action = func();
+        
+    if(action == true && speed == last_speed) {
+      if(gen > 0) {
+        mergeGenes();
+      } else {
+        generateGenes();
+      }
+      
+      checkCond();
+    }
+    
+    if(action == true) {
+      jumping = true;
+    }
+  } catch(e) {
+    if(gen > 0) {
+      mergeGenes();
+    } else {
+      generateGenes();
+    }
+    
+    checkCond();
+  }
+}
 
 $(function() {
   var canvas = document.getElementById("game");
@@ -205,26 +236,7 @@ $(function() {
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
     
-    try {
-      var func = new Function("return " + genes.join(" "));
-      var action = func();
-      
-      if(action == true && speed >= last_speed * 1.00005) {
-        jumping = true;
-      } else if(action == true && speed < last_speed * 1.00005) {
-        if(gen > 0) {
-          mergeGenes();
-        } else {
-          generateGenes();
-        }
-      }
-    } catch(e) {
-      if(gen > 0) {
-        mergeGenes();
-      } else {
-        generateGenes();
-      }
-    }
+    checkCond();
     
     if(jumping && !falling) {
       if(y > window.innerHeight - 425) {
