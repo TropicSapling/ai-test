@@ -24,7 +24,7 @@ var best_genes_2nd = [];
 var last_speed = 3;
 var best_speed = 3;
 var best_speed_2nd = 3;
-var high_score = 0;
+var highscore = 0;
 var op = 0;
 
 
