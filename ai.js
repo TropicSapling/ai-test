@@ -236,25 +236,6 @@ $(function() {
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
     
-    checkCond();
-    
-    if(jumping && !falling) {
-      if(y > window.innerHeight - 425) {
-        y -= Math.ceil((y - (window.innerHeight - 425)) * speed) / 50;
-      } else {
-        y = window.innerHeight - 424;
-        falling = true;
-      }
-    } else if(falling) {
-      if(y < window.innerHeight - 325) {
-        y += Math.ceil((y - (window.innerHeight - 425)) * speed) / 50;
-      } else {
-        y = window.innerHeight - 325;
-        jumping = false;
-        falling = false;
-      }
-    }
-    
     game.fillStyle = "#333";
     game.fillRect(x, y, 75, 75); // AI
     
@@ -308,6 +289,25 @@ $(function() {
     
     if(speed > (highscore + 30000) / 10000) {
       highscore = Math.round(speed * 10000) - 30000;
+    }
+    
+    checkCond();
+    
+    if(jumping && !falling) {
+      if(y > window.innerHeight - 425) {
+        y -= Math.ceil((y - (window.innerHeight - 425)) * speed) / 50;
+      } else {
+        y = window.innerHeight - 424;
+        falling = true;
+      }
+    } else if(falling) {
+      if(y < window.innerHeight - 325) {
+        y += Math.ceil((y - (window.innerHeight - 425)) * speed) / 50;
+      } else {
+        y = window.innerHeight - 325;
+        jumping = false;
+        falling = false;
+      }
     }
   }, 0);
   
