@@ -311,7 +311,7 @@ $(function() {
   }, 0);
   
   document.getElementById("speed").addEventListener("change", function() {
-    speed = $("#speed").val();
+    speed = ($("#speed").val() / 1000) * window.innerWidth;
     last_speed = speed;
   }, false);
 });
