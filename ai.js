@@ -4,7 +4,7 @@ var objx = window.innerWidth;
 var objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
 var objdx = 25 + (Math.round(Math.random() * 50));
 var objdy = Math.abs(objy - window.innerHeight) - 250;
-var speed = 0.003 * window.innerWidth;
+var speed = 0.005 * window.innerWidth;
 var jumping = false;
 var falling = false;
 
@@ -21,9 +21,9 @@ var old_genes = [];
 var old_genes_2nd = [];
 var best_genes = [];
 var best_genes_2nd = [];
-var last_speed = 3;
-var best_speed = 3;
-var best_speed_2nd = 3;
+var last_speed = speed;
+var best_speed = speed;
+var best_speed_2nd = speed;
 var highscore = 0;
 var op = 0;
 
