@@ -4,7 +4,7 @@ var objx = window.innerWidth;
 var objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
 var objdx = 25 + (Math.round(Math.random() * 50));
 var objdy = Math.abs(objy - window.innerHeight) - 250;
-var speed = 3;
+var speed = 0.003 * window.innerWidth;
 var jumping = false;
 var falling = false;
 
