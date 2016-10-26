@@ -200,7 +200,7 @@ $(function() {
     game.fillText("Generation: " + (gen + 1), 16, 32);
     game.fillText("Child: " + (child + 1), 16, 56);
     game.font = "18px Arial";
-    game.fillText("Highscore" + highscore, 16, 104);
+    game.fillText("Highscore: " + highscore, 16, 104);
     game.fillText(genes.join(" "), 256, 32);
     
     game.fillRect(0, window.innerHeight - 250, window.innerWidth, 250); // Ground
