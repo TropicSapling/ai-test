@@ -257,9 +257,9 @@ $(function() {
         gen++;
         child = 0;
         best_speed = speed;
+        highscore = Math.round(speed * 10000) - 30000;
         speed = last_speed;
         best_genes = genes;
-        highscore = Math.round(speed * 10000) - 30000;
         old_genes = best_genes;
         old_genes_2nd = best_genes_2nd;
       } else {
