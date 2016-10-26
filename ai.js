@@ -287,6 +287,10 @@ $(function() {
       objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
       objdy = Math.abs(objy - window.innerHeight) - 250;
     }
+
+    if(speed > best_speed) {
+      highscore = Math.round(speed * 10000) - last_speed * 10000;
+    }
     
     speed = speed * 1.00002;
     
