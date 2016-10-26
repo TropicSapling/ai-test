@@ -209,9 +209,9 @@ $(function() {
       var func = new Function("return " + genes.join(" "));
       var action = func();
       
-      if(action == true && speed != last_speed) {
+      if(action == true && speed >= last_speed * 1.01) {
         jumping = true;
-      } else if(action == true && speed == last_speed) {
+      } else if(action == true && speed < last_speed * 1.01) {
         if(gen > 0) {
           mergeGenes();
         } else {
