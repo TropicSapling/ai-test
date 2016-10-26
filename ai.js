@@ -253,17 +253,20 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(speed > (highscore + 30000) / 10000 && speed > last_speed * Math.pow(1.00002, (window.innerWidth - 300) / last_speed)) {
+      if(speed > best_speed && speed > last_speed * Math.pow(1.00002, (window.innerWidth - 300) / last_speed)) {
         gen++;
         child = 0;
         speed = last_speed;
-        best_speed = last_speed;
+        best_genes = genes;
+        best_speed = speed;
+        highscore = Math.round(speed * 10000) - 30000;
         old_genes = best_genes;
         old_genes_2nd = best_genes_2nd;
       } else {
         if(speed > best_speed) {
           best_genes = genes;
           best_speed = speed;
+          highscore = Math.round(speed * 10000) - 30000;
         } else if(speed > best_speed_2nd) {
           best_genes_2nd = genes;
           best_speed_2nd = speed;
@@ -284,12 +287,8 @@ $(function() {
       objy = window.innerHeight - (275 + Math.round(Math.random() * 50));
       objdy = Math.abs(objy - window.innerHeight) - 250;
     }
-    
+
     speed = speed * 1.00002;
-    
-    if(speed > (highscore + 30000) / 10000) {
-      highscore = Math.round(speed * 10000) - 30000;
-    }
     
     checkCond();
     
