@@ -265,9 +265,6 @@ $(function() {
         if(speed > best_speed) {
           best_genes = genes;
           best_speed = speed;
-          if(speed > (highscore + 30000) / 10000) {
-            highscore = Math.round(best_speed * 10000) - 30000;
-          }
         } else if(speed > best_speed_2nd) {
           best_genes_2nd = genes;
           best_speed_2nd = speed;
@@ -290,6 +287,10 @@ $(function() {
     }
     
     speed = speed * 1.00002;
+    
+    if(speed > (highscore + 30000) / 10000) {
+      highscore = Math.round(speed * 10000) - 30000;
+    }
   }, 0);
   
   document.getElementById("speed").addEventListener("change", function() {
