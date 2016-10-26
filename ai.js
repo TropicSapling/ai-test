@@ -256,9 +256,9 @@ $(function() {
       if(speed > best_speed && speed > last_speed * Math.pow(1.00002, (window.innerWidth - 300) / last_speed)) {
         gen++;
         child = 0;
+        best_speed = speed;
         speed = last_speed;
         best_genes = genes;
-        best_speed = speed;
         highscore = Math.round(speed * 10000) - 30000;
         old_genes = best_genes;
         old_genes_2nd = best_genes_2nd;
