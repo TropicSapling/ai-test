@@ -186,8 +186,8 @@ generateGenes();
 
 var gen = 0;
 var child = 0;
-var func = new Function("return " + genes.join(" "));
-var action = func();
+var func;
+var action;
 
 function checkCond() {
   try {
