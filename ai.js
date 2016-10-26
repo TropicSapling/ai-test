@@ -19,9 +19,12 @@ while(res_len % 2 == 0) {
 var genes = [];
 var old_genes = [];
 var old_genes_2nd = [];
+var best_genes = [];
+var best_genes_2nd = [];
 var last_speed = 3;
 var best_speed = 3;
 var best_speed_2nd = 3;
+var high_score = 0;
 var op = 0;
 
 
@@ -254,12 +257,18 @@ $(function() {
         gen++;
         child = 0;
         speed = last_speed;
+        best_speed = last_speed;
+        old_genes = best_genes;
+        old_genes_2nd = best_genes_2nd;
       } else {
         if(speed > best_speed) {
-          old_genes = genes;
+          best_genes = genes;
           best_speed = speed;
+          if(speed > (highscore + 30000) / 10000) {
+            highscore = Math.round(best_speed * 10000) - 30000;
+          }
         } else if(speed > best_speed_2nd) {
-          old_genes_2nd = genes;
+          best_genes_2nd = genes;
           best_speed_2nd = speed;
         }
         
