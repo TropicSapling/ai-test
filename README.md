@@ -8,6 +8,6 @@ An artificial intelligence that tries to jump over the obstacles at the right ti
 * `objx + 17 - objy <= objdx` (Gen 2, child 17. Seemed to survive for quite a while too, got a score of 740694)
 * `objx && 98 + y >= objx` (Gen 2)
 * `objx <= objy + 69 >= objdy / objx` (Gen 3, child 3. Highscore ~800000)
-* `objects - 60 <= 61 + objy` (Gen 2, child 37. Highscore 1000000+!)
+* `objects - 60 <= 61 + objy` (Gen 2, child 37. Highscore 1781872!)
 
 (Some of these conditions only work in certain speeds though, I tested all of them with speed set to 10)
