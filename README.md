@@ -7,5 +7,6 @@ An artificial intelligence that tries to jump over the obstacles at the right ti
 * `39 && objx <= (y) - ((89))` (Gen 1, child 8. Also seemed to survive forever)
 * `objx + 17 - objy <= objdx` (Gen 2, child 17. Seemed to survive for quite a while too, got a score of 740694)
 * `objx && 98 + y >= objx` (Gen 2)
+* `objx <= objy + 69 >= objdy / objx` (Gen 3, child 3. Highscore ~800000)
 
 (Some of these conditions only work in certain speeds though, I tested all of them with speed set to 10)
