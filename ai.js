@@ -253,7 +253,7 @@ $(function() {
     
     if((objx + objdx) >= x && objx <= x + 75 && (objy + objdy) >= y && objy <= y + 75) {
       // Touching obstacle
-      if(speed > best_speed && speed > last_speed * Math.pow(1.00002, (window.innerWidth - 300) / last_speed)) {
+      if((speed > best_speed || (speed == best_speed && genes.length < best_genes.length)) && speed > last_speed * Math.pow(1.00002, (window.innerWidth - 300) / last_speed)) {
         gen++;
         child = 0;
         best_speed = speed;
@@ -270,6 +270,10 @@ $(function() {
         } else if(speed > best_speed_2nd) {
           best_genes_2nd = genes;
           best_speed_2nd = speed;
+        } else if(speed == best_speed && genes.length < best_genes.length) {
+          best_genes = genes;
+        } else if(speed == best_speed_2nd && genes.length < best_genes_2nd.length) {
+          best_genes_2nd = genes;
         }
         
         child++;
