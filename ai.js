@@ -8,7 +8,7 @@ var speed = 0.005 * window.innerWidth;
 var jumping = false;
 var falling = false;
 
-var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||", "!"];
+var operators = ["+", "-", "*", "/", "<", "<=", ">=", ">", "&&", "||"];
 var vars = ["x", "y", "objx", "objy", "objdx", "objdy"];
 var brackets = ["(", ")"];
 
