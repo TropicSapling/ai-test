@@ -12,3 +12,6 @@ An artificial intelligence that tries to jump over the obstacles at the right ti
 * `objx - y <= 10 + 74 + 8` (Gen 3, child 4. Highscore 1000000+)
 
 (Some of these conditions only work in certain speeds though, I tested all of them with speed set to 10)
+
+## Demo
+https://tropicsapling.github.io/ai-test/
